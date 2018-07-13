@@ -1,0 +1,58 @@
+body {
+  background: lightblue;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.menu
+{
+  background: rgba(7,7,7,0.3);
+  width: 200px;
+  text-align: left;
+  display: inline-block;
+  float: left;
+}
+
+/*.content*/
+/*{*/
+/*background: rgba(7,7,7,0.3);*/
+/*}*/
+
+.block{
+  display: inline-block;
+  /*color: #FFF;*/
+  color: blue;
+}
+
+.menu{
+  display: inline-block;
+}
+
+a:hover {
+  text-decoration:none;
+}
+a:hover span {
+  text-decoration:underline;
+}
+
+ul a:link
+{
+  color: black;
+}
+
+a, a:link, a:visited
+{
+  color: white;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+a:hover, a:active
+{
+  /*background: black;*/
+  border-color: #00a9c2;
+  color: #fff;
+}
+
+

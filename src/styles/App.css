@@ -1,0 +1,41 @@
+.App {
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-image: url('../node_modules/images/nathan-shipps2.jpg');
+  /*Fixed bugs for background-image in Chrome */
+  background-attachment: fixed !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-image: url("../node_modules/images/blake-connally-header.png");
+  background-color: #222;
+  height: 200px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 2em;
+  font-family: oblique ;
+}
+
+.App-intro {
+  /*font-size: large;*/
+  font-size: 2em;
+  font-family: oblique ;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
