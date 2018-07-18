@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {BrowserRouter, Route} from  'react-router-dom';
+import React, {Component} from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
 import i18next from "i18next";
 
 import Header from 'components/header/index.js';
@@ -13,6 +13,7 @@ import Weather from 'components/pages/wearther/index.js';
 import User from 'components/pages/user/index.js';
 import Signin from 'components/pages/signin/index.js';
 import Signup from 'components/pages/signup/index.js';
+import Courses from 'containers/courses/index.js';
 
 /*actions*/
 
@@ -21,7 +22,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            language:"en"
+            language: "en"
         };
     }
 
@@ -61,47 +62,51 @@ class App extends Component {
         this.setLanguage(event.target.value);
     };
 
-  render() {
-    return (
-        <BrowserRouter>
-            <div className="App">
-                <select
-                    id="lang"
-                    onChange={this.handleChangeLanguage}
-                    value={this.state.value}
-                >
-                    <option value='en'>English</option>
-                    <option value='ru'>Russian</option>
-                </select>
+    render() {
+        return (
+            <BrowserRouter>
+                <div className="App">
+                    <select
+                        id="lang"
+                        onChange={this.handleChangeLanguage}
+                        value={this.state.value}
+                    >
+                        <option value='en'>English</option>
+                        <option value='ru'>Russian</option>
+                    </select>
 
-                {/*Header*/}
-                <header className="App-header">
-                    <Header/>
-                </header>
-                {/*Menu*/}
-                <div className={'menu'}>
-                    <Menu/>
-                </div>
-                {/*Block*/}
-                <div className={'block'}>
-                    <div className="content">
-                        <div>
-                            <Route exact path='/' component={Home} />
-                            <Route path='/tv' component={Tv} />
-                            <Route path='/sales' component={Sales} />
-                            <Route path='/weather' component={Weather} />
-                            <Route path='/user' component={User} />
-                            <Route path='/signin' component={Signin} />
-                            <Route path='/signup' component={Signup} />
+                    {/*Header*/}
+                    <header className="App-header">
+                        <Header/>
+                    </header>
+                    <div className={'App-main'}>
+                        {/*Menu*/}
+                        <div className={'menu'}>
+                            <Menu/>
                         </div>
-                        {/*<p className="App-intro">*/}
-                            {/*To get started, edit <code>src/App.js</code> and save to reload.*/}
-                        {/*</p>*/}
+                        {/*Block*/}
+                        <div className={'block'}>
+                            <div className="content">
+                                <div>
+                                    <Route exact path='/' component={Home}/>
+                                    <Route path='/courses' component={Courses}/>
+                                    <Route path='/tv' component={Tv}/>
+                                    <Route path='/sales' component={Sales}/>
+                                    <Route path='/weather' component={Weather}/>
+                                    <Route path='/user' component={User}/>
+                                    <Route path='/signin' component={Signin}/>
+                                    <Route path='/signup' component={Signup}/>
+                                </div>
+                                {/*<p className="App-intro">*/}
+                                {/*To get started, edit <code>src/App.js</code> and save to reload.*/}
+                                {/*</p>*/}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </BrowserRouter>
-    );
-  }
+            </BrowserRouter>
+        );
+    }
 }
+
 export default App;

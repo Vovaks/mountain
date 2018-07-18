@@ -1,5 +1,3 @@
-import './styles/index.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore, applyMiddleware} from 'redux';
@@ -12,7 +10,6 @@ import App from "./App.js";
 
 /* styles*/
 import './styles/App.css';
-import './styles/index.css';
 import './styles/main.scss';
 
 // import registerServiceWorker from './registerServiceWorker';

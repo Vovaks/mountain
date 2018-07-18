@@ -1,14 +1,7 @@
+
+
 .App {
-  position: absolute;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-  background-image: url('../node_modules/images/nathan-shipps2.jpg');
-  /*Fixed bugs for background-image in Chrome */
-  background-attachment: fixed !important;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
 }
 
 .App-logo {
@@ -17,7 +10,7 @@
 }
 
 .App-header {
-  background-image: url("../node_modules/images/blake-connally-header.png");
+  /*background-image: url("../node_modules/images/blake-connally-header.png");*/
   background-color: #222;
   height: 200px;
   padding: 20px;
@@ -30,12 +23,123 @@
 }
 
 .App-intro {
-  /*font-size: large;*/
   font-size: 2em;
   font-family: oblique ;
+}
+
+.App-main {
+  /*display: flex;*/
+}
+
+.block{
+  width: 80%;
+}
+
+.content{
+  background: rgba(7,7,7,0.5);
+}
+
+.sign{
+  margin: auto;
+  /*width: 20%;*/
+  padding: 10px;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.Courses{
+  background: rgba(7,7,7,0.5);
+  width: 100%;
+  display: inline-block;
+  float: left;
+}
+
+.card{
+  margin: 10px;
+  border-bottom: 2px solid #337ab7;
+  padding: 25px;
+}
+
+.card-link{
+  float: right;
+}
+
+.card-body{
+  color:white !important;
+}
+.text-muted{
+  color:white !important;
+}
+
+
+body {
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-image: url('../node_modules/images/nathan-shipps2.jpg');
+  /*Fixed bugs for background-image in Chrome */
+  background-attachment: fixed !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.menu
+{
+  display: inline-block;
+  background: rgba(7,7,7,0.5);
+  width: 200px;
+  text-align: left;
+  float: left;
+}
+
+
+.block{
+  display: inline-block;
+  color: blue;
+}
+
+a:hover {
+  text-decoration:none;
+}
+a:hover span {
+  text-decoration:underline;
+}
+
+ul a:link
+{
+  color: black;
+}
+
+a, a:link, a:visited
+{
+  color: white;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+a:hover, a:active
+{
+  /*background: black;*/
+  border-color: #00a9c2;
+  color: #fff;
+}
+
+
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
 }
