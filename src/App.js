@@ -1,112 +1,81 @@
-import React, {Component} from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
-import i18next from "i18next";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Layout, Menu, Icon, Button } from 'antd';
 
-import Header from 'components/header/index.js';
-import Menu from 'containers/menu/index.js';
+import Dashboard from './containers/Dashboard';
+import Index from './containers/Meseros';
+import {logout} from "./utils";
 
-/*pages*/
-import Home from 'components/pages/home/index.js';
-import Tv from 'components/pages/tv/index.js';
-import Sales from 'components/pages/sales/index.js';
-import Weather from 'components/pages/wearther/index.js';
-import User from 'components/pages/user/index.js';
-import Signin from 'components/pages/signin/index.js';
-import Signup from 'components/pages/signup/index.js';
-import Courses from 'containers/courses/index.js';
-
-/*actions*/
+const { Header, Content, Footer, Sider } = Layout;
+const SubMenu = Menu.SubMenu;
 
 class App extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            language: "en"
-        };
-    }
+  state = {
+    collapsed: false,
+  };
 
-    componentWillMount() {
-        this.setLanguage(this.state.language);
-    }
+  onCollapse = (collapsed) => {
+    this.setState({ collapsed });
+  }
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
+  logout = () => {
+    logout();
+    this.props.history.push(`/`)
+  }
 
-    /**
-     * setLanguage
-     * @param language
-     * Now load from json
-     * You can load translation for every page or for all pages
-     * Read in https://www.i18next.com
-     */
-    setLanguage(language) {
-        i18next.init({
-            lng: language,
-            resources: {
-                "ru": {
-                    "translation":
-                        require('translate/ru.json')
-                },
-                "en": {
-                    "translation":
-                        require('translate/en.json')
-                },
-            },
-        });
-    }
+  render() {
+    return (
+      <Router>
+        <Layout style={{ minHeight: '100vh' }}>
+          <Sider
+            collapsible
+            collapsed={this.state.collapsed}
+            onCollapse={this.onCollapse}>
+            <div className="logo" />
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+              <Menu.Item key="1">
+                <Icon type="pie-chart" />
+                <span>Deshboard</span>
+                <Link to="/dashboard" />
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Icon type="desktop" />
+                <span>Meseros</span>
+                <Link to="/dashboard/meseros" />
+              </Menu.Item>
+            </Menu>
+          </Sider>
+          <Layout>
+            <Header style={{ background: '#fff', padding: 0, paddingLeft: 16 }}>
+              <Icon
+                className="trigger"
+                type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                style={{ cursor: 'pointer' }}
+                onClick={this.toggle}
+              />
+              <Button onClick={this.logout}>logout</Button>
+            </Header>
 
-    /**
-     * OnChange for Language Selector
-     * @param event
-     */
-    handleChangeLanguage = (event) => {
-        this.setState({lng: event.target.value});
-        this.setLanguage(event.target.value);
-    };
+            <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route path="/dashboard/meseros" component={Index} />
+            </Content>
 
-    render() {
-        return (
-            <BrowserRouter>
-                <div className="App">
-                    <select
-                        id="lang"
-                        onChange={this.handleChangeLanguage}
-                        value={this.state.value}
-                    >
-                        <option value='en'>English</option>
-                        <option value='ru'>Russian</option>
-                    </select>
+            <Footer style={{ textAlign: 'center' }}>
+              Ant Design ©2016 Created by Ant UED
+            </Footer>
+          </Layout>
 
-                    {/*Header*/}
-                    <header className="App-header">
-                        <Header/>
-                    </header>
-                    <div className={'App-main'}>
-                        {/*Menu*/}
-                        <div className={'menu'}>
-                            <Menu/>
-                        </div>
-                        {/*Block*/}
-                        <div className={'block'}>
-                            <div className="content">
-                                <div>
-                                    <Route exact path='/' component={Home}/>
-                                    <Route path='/courses' component={Courses}/>
-                                    <Route path='/tv' component={Tv}/>
-                                    <Route path='/sales' component={Sales}/>
-                                    <Route path='/weather' component={Weather}/>
-                                    <Route path='/user' component={User}/>
-                                    <Route path='/signin' component={Signin}/>
-                                    <Route path='/signup' component={Signup}/>
-                                </div>
-                                {/*<p className="App-intro">*/}
-                                {/*To get started, edit <code>src/App.js</code> and save to reload.*/}
-                                {/*</p>*/}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </BrowserRouter>
-        );
-    }
+        </Layout>
+      </Router>
+    );
+  }
 }
+
 
 export default App;
