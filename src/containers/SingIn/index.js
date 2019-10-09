@@ -1,5 +1,5 @@
 import React from 'react';
-import { login } from '../utils';
+import { login } from '../../utils';
 
 const SignIn = (props) => {
 
@@ -11,7 +11,6 @@ const SignIn = (props) => {
   return (
     <div>
       <h1>Sign in</h1>
-
       <button onClick={() => handleLogin()}>Click here to log in</button>
     </div>
   );

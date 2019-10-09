@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch } from 'react-router-dom';
-import Home from './components/Home';
-import SignIn from './components/SingIn';
-import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
+import Index from './containers/Home';
+import SignIn from './containers/SingIn';
+import PrivateRoute from './containers/PrivateRoute';
+import PublicRoute from './containers/PublicRoute';
 import './App.css';
 import App from "./App";
 
@@ -12,7 +12,7 @@ function RouterApp() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <PublicRoute restricted={false} component={Home} path="/" exact />
+          <PublicRoute restricted={true} component={Index} path="/" exact />
           <PublicRoute restricted={true} component={SignIn} path="/signin" exact />
           <PrivateRoute component={App} path="/dashboard" exact />
         </Switch>

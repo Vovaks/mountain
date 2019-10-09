@@ -40,7 +40,7 @@ class App extends Component {
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
               <Menu.Item key="1">
                 <Icon type="pie-chart" />
-                <span>Deshboard</span>
+                <span>Dashboard</span>
                 <Link to="/dashboard" />
               </Menu.Item>
               <Menu.Item key="2">
