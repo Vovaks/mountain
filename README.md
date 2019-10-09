@@ -2,7 +2,7 @@ This project.
 
 ## This is  Mountain
 
-Created for test
+Created for test. 
 
 ### `npm start`
 
@@ -66,3 +66,8 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### 'json-server --watch db.json' Start server
+
+As a parameter, we need to pass a file containing our JSON structure (db.json). In addition, we use the - watch option. Using this parameter, we guarantee that the server is running in monitoring mode, which means that it monitors file changes and updates the provided API accordingly 
