@@ -7,7 +7,6 @@ import Index from "./containers/Meseros"
 import { logout } from "./utils"
 
 const { Header, Content, Footer, Sider } = Layout
-const SubMenu = Menu.SubMenu
 
 class App extends Component {
   state = {
