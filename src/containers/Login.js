@@ -5,9 +5,9 @@ const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   async function signin() {
-    await login(email, password)
-    setEmail("")
-    setPassword("")
+          await login(email, password)
+          setEmail("")
+          setPassword("")
   }
   return (
     <form method="post" onSubmit={signin}>
