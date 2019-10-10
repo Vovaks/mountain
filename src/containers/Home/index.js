@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
-import { logout, isLogin } from '../../utils';
-import { Link } from 'react-router-dom';
-import Background from '../../images/background.webp';
+import { Component } from "react"
+import { logout, isLogin } from "../../utils"
+import { Link } from "react-router-dom"
+import Background from "../../images/background.webp"
 
 class Home extends Component {
-
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       isLogin: isLogin()
     }
   }
 
   handleLogout = () => {
-    logout();
+    logout()
     this.setState({
       isLogin: false
     })
@@ -21,15 +20,22 @@ class Home extends Component {
 
   render() {
     return (
-      <div style={{width: "100%", height: "100%",backgroundImage: `url(${Background})`}}>
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundImage: `url(${Background})`
+        }}
+      >
         <h1>This is Mountain</h1>
-        {this.state.isLogin ?
+        {this.state.isLogin ? (
           <button onClick={() => this.handleLogout()}>Click here to log out</button>
-          : <Link to="/signin">Go to sign in page</Link>
-        }
+        ) : (
+          <Link to="/signin">Go to sign in page</Link>
+        )}
       </div>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home

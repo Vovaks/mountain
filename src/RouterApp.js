@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter, Switch } from 'react-router-dom';
-import Index from './containers/Home';
-import SignIn from './containers/SingIn';
-import PrivateRoute from './containers/PrivateRoute';
-import PublicRoute from './containers/PublicRoute';
-import './App.css';
-import App from "./App";
+import React from "react"
+import { BrowserRouter, Switch } from "react-router-dom"
+import Index from "./containers/Home"
+import SignIn from "./containers/SingIn"
+import PrivateRoute from "./containers/PrivateRoute"
+import PublicRoute from "./containers/PublicRoute"
+import "./App.css"
+import App from "./App"
 
 function RouterApp() {
   return (
@@ -18,7 +18,7 @@ function RouterApp() {
         </Switch>
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default RouterApp;
+export default RouterApp

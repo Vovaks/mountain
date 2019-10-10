@@ -1,6 +1,6 @@
 This project.
 
-## This is  Mountain
+## This is Mountain
 
 Created for test
 
