@@ -5,7 +5,7 @@ class Menu extends Component {
     const asd = { "asd!!:": "asd" }
     return (
       <div>
-        <div> {asd}</div>
+        <div>{asd}</div>
       </div>
     )
   }
