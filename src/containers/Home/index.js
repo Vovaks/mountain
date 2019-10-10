@@ -27,7 +27,6 @@ class Home extends Component {
           backgroundImage: `url(${Background})`
         }}
       >
-        {/* eslint-disable-next-line react/react-in-jsx-scope */}
         <h1>This is Mountain</h1>
         {this.state.isLogin ? (
           <button onClick={() => this.handleLogout()}>Click here to log out</button>
