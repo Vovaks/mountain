@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Layout, Menu, Icon, Button } from 'antd';
+import { observer, inject } from 'mobx-react'; //These functions
+import TodoList from './components/TodoList';
+import Form from './components/Form';
 
 import Dashboard from './containers/Dashboard';
 import Index from './containers/Meseros';
+import Todo from './components/Todo';
 import {logout} from "./utils";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -29,6 +33,7 @@ class App extends Component {
   }
 
   render() {
+    const { store } = this.props;
     return (
       <Router>
         <Layout style={{ minHeight: '100vh' }}>
@@ -48,6 +53,11 @@ class App extends Component {
                 <span>Meseros</span>
                 <Link to="/dashboard/meseros" />
               </Menu.Item>
+              <Menu.Item key="3">
+                <Icon type="form" />
+                <span>Form</span>
+                <Link to="/dashboard/Todo" />
+              </Menu.Item>
             </Menu>
           </Sider>
           <Layout>
@@ -64,6 +74,16 @@ class App extends Component {
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               <Route exact path="/dashboard" component={Dashboard} />
               <Route path="/dashboard/meseros" component={Index} />
+              <Route path="/dashboard/form" component={Todo} />
+
+              <div>
+                <h3 className="subtitle">Make a new To do</h3>
+                <Form store={store}/>
+              </div>
+              <div className="card-container">
+                {store.Todo.map((todo, i) => (
+                  <TodoList todo={todo} key={i}/>))}
+              </div>
             </Content>
 
             <Footer style={{ textAlign: 'center' }}>
@@ -77,5 +97,4 @@ class App extends Component {
   }
 }
 
-
-export default App;
+export default inject('store')(observer  (App));
