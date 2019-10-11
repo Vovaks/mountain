@@ -6,6 +6,16 @@ import PrivateRoute from './containers/PrivateRoute';
 import PublicRoute from './containers/PublicRoute';
 import './App.css';
 import App from "./App";
+import TaskStore from './models/TaskStore';
+
+//debugging tools
+import { onPatch } from 'mobx-state-tree';
+import makeInspectable from 'mobx-devtools-mst';
+onPatch(store, patch => {
+  console.log(patch)
+})
+const store = TaskStore.create({})
+makeInspectable(store);
 
 function RouterApp() {
   return (
@@ -14,7 +24,7 @@ function RouterApp() {
         <Switch>
           <PublicRoute restricted={true} component={Index} path="/" exact />
           <PublicRoute restricted={true} component={SignIn} path="/signin" exact />
-          <PrivateRoute component={App} path="/dashboard" exact />
+          <PrivateRoute store={store} component={App} path="/dashboard" exact />
         </Switch>
       </BrowserRouter>
     </div>
