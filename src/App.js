@@ -4,8 +4,9 @@ import { Layout, Menu, Icon, Button } from 'antd';
 import { observer, inject } from 'mobx-react'; //These functions
 
 import Dashboard from './containers/Dashboard';
-import Index from './containers/Meseros';
+import Meseros from './containers/Meseros';
 import Todo from './containers/Todo';
+import FlowTreePage from './containers/FlowTree/index';
 import {logout} from "./utils";
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -57,6 +58,11 @@ class App extends Component {
                 <span>TodoList</span>
                 <Link to="/dashboard/todolist" />
               </Menu.Item>
+              <Menu.Item key="4">
+                <Icon type="pull-request" />
+                <span>FlowTree</span>
+                <Link to="/dashboard/flowTree" />
+              </Menu.Item>
             </Menu>
           </Sider>
           <Layout>
@@ -72,8 +78,9 @@ class App extends Component {
 
             <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
               <Route exact path="/dashboard" component={Dashboard} />
-              <Route path="/dashboard/meseros" component={Index} />
+              <Route path="/dashboard/meseros" component={Meseros} />
               <Route path="/dashboard/todolist" render={(props) => <Todo {...props } store={store}/>}/>
+              <Route path="/dashboard/flowTree" render={(props) => <FlowTreePage {...props } store={store}/>}/>
             </Content>
 
             <Footer style={{ textAlign: 'center' }}>

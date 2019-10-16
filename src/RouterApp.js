@@ -15,7 +15,7 @@ function RouterApp() {
         <Switch>
           <PublicRoute restricted={true} component={Index} path="/" exact />
           <PublicRoute restricted={true} component={SignIn} path="/signin" exact />
-          <PrivateRoute component={App} path="/dashboard" exact />
+          <PrivateRoute component={App} path="/dashboard" />
         </Switch>
       </BrowserRouter>
     </div>
